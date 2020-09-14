@@ -1,2 +1,2 @@
 # Programozasok_DEIK
-C++ forrásfájlok...
+Feladatok megoldása C++
