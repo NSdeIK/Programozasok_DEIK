@@ -2,19 +2,19 @@
 
 int main()
 {
-//Drill 1
+//Drill 3.1
 	string kereszt,barat;
 	cout << "Kérem írjon be a keresztnevét!\n";
 	cin >> kereszt;
 
 	cout << endl << "Hello, " << kereszt << "!\n"; 
-//Drill 2
+//Drill 3.2
 	cout << endl << "Hogy vagy? Jól vagyok köszönöm!" << endl << "Milyen napod volt? Nagyon szuper volt!" << endl << "Szoktál fotózni mostanában? Igen, és nagyon remek fotókat csináltam!\n"<< endl;
-//Drill 3
+//Drill 3.3
 	cout << "Kérem írjon be a barátod keresztnevét!\n";
 	cin >> barat;
 	cout << endl << "Nem láttad mostanában " << barat << "-t?\n";
-//Drill 4
+//Drill 3.4
 	char nem=0;
 	cout << "\nKérem írjon be, hogy a barátod F (férfi) vagy N (nő) nemhez tartozik...\n";
 	cin >> nem;
@@ -25,7 +25,7 @@ int main()
 	else
 		cout << "\nNem létezik ilyen!\n";
 
-//Drill 5
+//Drill 3.5
 	int kor;
 	cout << "\nKérem írjon be a korát!\n";
 	cin >> kor;
@@ -34,7 +34,7 @@ int main()
 	{
 		simple_error("Viccelsz!?");
 	}
-//Drill 6
+//Drill 3.6
 	if(kor <12)
 		cout << "\nKövetkező évben " << kor+1 << " éves leszel!\n";
 	else if(kor == 17)
@@ -42,7 +42,7 @@ int main()
 	else if(kor >=70)
 		cout <<"\nRemélem élvezed nyugdíjas korát!\n";
 
-//Drill 7
+//Drill 3.7
 
 	cout << "Tisztelettel, \n\n" << kereszt << endl;
 	return 0;
