@@ -22,6 +22,12 @@ int main()
 
 
 	//Beolvassuk az erteket
+	string cm = "cm";
+	string m = "m";
+	string in = "in";
+	string ft1 = "ft.";
+	string ft2 = "ft";
+	
 	double ujertek, valtoertek;
 	//...
 	double maxertek=0,minertek=0,osszeadas =0,db=0;
@@ -36,27 +42,26 @@ int main()
 	{
 
 		//Egyszerűbb, ha if-el oldjuk meg ezeket (de most gyakorlásképpen így oldottam meg)
-		if(mertekegyseg == "cm")
+		if(mertekegyseg == cm)
 			ujmertekegyseg=1;
-		else if(mertekegyseg =="m")
+		else if(mertekegyseg == m)
 			ujmertekegyseg=2;
-		else if(mertekegyseg =="in")
+		else if(mertekegyseg == in)
 			ujmertekegyseg=3;
-		else if(mertekegyseg =="ft." || "ft")
+		else if(mertekegyseg == ft1)
 			ujmertekegyseg=4;
-		else if(mertekegyseg == "y" || "yard" || "meter" || "km" || "gallons")
+		else if(mertekegyseg == ft2)
+			ujmertekegyseg=4;
+		//else if(mertekegyseg == "y" || "yard" || "meter" || "km" || "gallons") 
+		else
 		{
 			cout << "Nincsen engedélyezve! (Illegális)" << endl;
 			ujmertekegyseg=0;
 		}
-		else
-			ujmertekegyseg=0;
-
 		//Mértékegység váltás
 		switch(ujmertekegyseg)
 		{
 			case 0 :
-				valtoertek=0;
 				break;
 			case 1 : //cm
 				valtoertek=ujertek/100;
@@ -82,25 +87,28 @@ int main()
 				break;
 		}
 		 //Mennyi lépést tettünk meg idáig...
-		osszeadas+=valtoertek; //Összeadja az értékeket
-		cout << "---------------------\n";
-		cout << "Jelenlegi: "<< osszeadas << " méter. (Összesítve)" << endl << "Összesen: " << db << " db" << endl; //Hány méter összesítve
-		cout << "---------------------\n";
-		adatok.push_back(valtoertek); //Hozzáadja az értéket while kívül a vektornak.
+		if(ujmertekegyseg!=0)
+		{
+			osszeadas+=valtoertek; //Összeadja az értékeket
+			cout << "---------------------\n";
+			cout << "Jelenlegi: "<< osszeadas << " méter. (Összesítve)" << endl << "Összesen: " << db << " db" << endl; //Hány méter összesítve
+			cout << "---------------------\n";
+			adatok.push_back(valtoertek); //Hozzáadja az értéket while kívül a vektornak.
+				if(maxertek==0 && minertek ==0)
+				{
+					maxertek = valtoertek;
+					minertek = valtoertek;
+				}
+				else if(valtoertek<minertek) //Ha van ennél kisebb érték, mint az előzőnél, akkor beilleszti új értéket.
+				{
+					minertek=valtoertek;
+				}
+				else if(valtoertek>maxertek) //Ha nagyobb érték, mint az előzőnél, akkor beilleszti új értéket.
+				{
+					maxertek=valtoertek;
+				}
+		}
 
-		if(maxertek==0 && minertek ==0)
-		{
-			maxertek = valtoertek;
-			minertek = valtoertek;
-		}
-		else if(valtoertek<minertek) //Ha van ennél kisebb érték, mint az előzőnél, akkor beilleszti új értéket.
-		{
-			minertek=valtoertek;
-		}
-		else if(valtoertek>maxertek) //Ha nagyobb érték, mint az előzőnél, akkor beilleszti új értéket.
-		{
-			maxertek=valtoertek;
-		}
 	}
 
 	sort(adatok); //Rendezi a sorrendet
