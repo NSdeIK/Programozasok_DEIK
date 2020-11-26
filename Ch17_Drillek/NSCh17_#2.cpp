@@ -16,7 +16,7 @@ try{
 	int* p1 = &szam;
 
 	//Drill 2 feladat
-	cout << "Érték: " << szam << " | P1 értéke: " << *p1 << endl;
+	cout << "Érték: " << szam << " | P1 értéke: " << p1 << endl;
 
 	//Drill 3 feladat
 	int het [7] = {1,2,4,8,16,32,64};
